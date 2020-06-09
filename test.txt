@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+    color: greenyellow;
+    
+}
+
+#code-div {
+    font: 15px consolas, monospace, sans-serif;
+    white-space: pre-line;
+}
+
+code {
+    font: 15px consolas, monospace, sans-serif;
+}
