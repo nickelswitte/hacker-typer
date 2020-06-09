@@ -11,7 +11,7 @@ var counter = 0;
 /**
  * Maximum chars that will be printed at one key press
  */
-var stepsizeMax = 10;
+var stepsizeMax = 5;
 
 /**
  * How far it will scroll when a key is pressed
@@ -23,6 +23,12 @@ var scrollStep = 100000;
  */
 var codeDiv = document.getElementById("code-div");
 
+var cursorSpeed = 750;
+
+var panelFirewall = document.getElementById("panel-firewall");
+
+var cursor = document.getElementById("cursor");
+
 /**
  * This part of the code decides what to happen, when a key is pressed
  */
@@ -32,7 +38,10 @@ document.addEventListener('keydown', function(e) {
         keyDown();
         pageScroll();
     } else if (e.keyCode == 13) {
-        alert("Firewall down");
+        // alert("Firewall down");
+        panelFirewall.style.visibility = "visible";
+    } else if (e.keyCode == 27) {
+        panelFirewall.style.visibility = "hidden";
     }
     
 
@@ -48,6 +57,10 @@ function keyDown() {
 
 function callbackMethod(text) {
     fileText = text;
+}
+
+function dumpAll(text) {
+    codeDiv.innerText = text;
 }
 
 function pageScroll() {
@@ -75,13 +88,18 @@ function loadFile(callbackMethod, pathToFile) {
     xobj.send(null);  
 }
 
-function activateCheats() {
-    document.body.style.backgroundImage = "url('images/cheatBackground.png')";
-
-    var audio = new Audio('audio/pling.mp3');
-    audio.play();
-
-    alert("cheats activated");
+function toggleCursor() {
+    
+    cursor.style.visibility == "hidden" ? cursor.style.visibility = "visible" : cursor.style.visibility = "hidden";
+    
+    setTimeout(() => {  toggleCursor(); }, cursorSpeed);
 }
 
+/**
+ * Load init text into the div
+ */
+loadFile(dumpAll, "./init_text2.txt");
+
 loadFile(callbackMethod, "./index.html");
+
+toggleCursor();

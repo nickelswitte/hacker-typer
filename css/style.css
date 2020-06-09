@@ -7,3 +7,22 @@ body {
 code {
     font: 15px consolas, monospace, sans-serif;
 }
+
+.float {
+	position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 300px;
+    height: 250px;
+
+	background-color: black;
+    color: greenyellow;
+    font: 25px consolas, monospace, sans-serif;
+
+    text-align: center;
+    z-index: 3;
+    
+    visibility: hidden;
+
+    border: 1px solid greenyellow !important;
+}
