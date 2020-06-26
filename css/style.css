@@ -14,15 +14,30 @@ code {
     margin: auto;
     width: 300px;
     height: 250px;
+    width: 40%;
+    padding: 10px;
 
 	background-color: black;
     color: greenyellow;
     font: 25px consolas, monospace, sans-serif;
 
+    display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    
     z-index: 3;
     
     visibility: hidden;
 
     border: 1px solid greenyellow !important;
+}
+
+.float2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    border: 2px dashed #f69c55;
 }
